@@ -5,30 +5,22 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashmap = {}
-        for i in range(len(nums)):
-            hashmap[nums[i]] = i
+        # O(N) time using hash map
+        map = {}
 
-        for i in range(len(nums)):
-            complement = target - nums[i]
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in map:
+                return [map[diff],i]
+            map[n] = i
+        return
+        ## O(n^2) time
+        # index = []
 
-            if complement in hashmap and hashmap[complement] != i:
-                return [i, hashmap[complement]]
-        return None
+        # for i in range(len(nums)):
+        #     for j in range(1,len(nums)):
+        #         if (nums[i] + nums[j] == target):
+        #             index = [i,j]
+        #             return index
 
-# another hashmap solution
-# class Solution(object):
-# def twoSum(self, nums, target):
-#     """
-#     :type nums: List[int]
-#     :type target: int
-#     :rtype: List[int]
-#     """
-#     hashmap = {}
-
-#     for i, n in enumerate(nums):
-#         val = target - n
-#         if val in hashmap:
-#             return [hashmap[val], i]
-#         else:
-#             hashmap[n] = i
+        # return
