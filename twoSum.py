@@ -14,13 +14,4 @@ class Solution(object):
                 return [map[diff],i]
             map[n] = i
         return
-        ## O(n^2) time
-        # index = []
 
-        # for i in range(len(nums)):
-        #     for j in range(1,len(nums)):
-        #         if (nums[i] + nums[j] == target):
-        #             index = [i,j]
-        #             return index
-
-        # return
